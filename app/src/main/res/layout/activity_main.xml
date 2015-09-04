@@ -1,11 +1,230 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:columnCount="8"
+    android:rowCount="9"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/app_padding">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_rowSpan="@integer/one_span"
+        android:layout_columnSpan="@integer/four_span"
+        android:layout_gravity="top"
+        android:layout_column="0"
+        android:padding="@dimen/app_padding"
+        android:layout_row="0">
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/weight_text_label"
+            android:id="@+id/idWeightLabel" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/idWeightEditText"
+            android:hint="Enter Weight"
+            android:textSize="13dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_rowSpan="@integer/one_span"
+        android:layout_columnSpan="@integer/four_span"
+        android:layout_gravity="top"
+        android:layout_column="4"
+        android:padding="@dimen/app_padding"
+        android:layout_row="0">
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gender_label"
+            android:id="@+id/idGenderSwitch" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_button_label"
+        android:id="@+id/idSaveButton"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:layout_columnSpan="8"
+        android:layout_rowSpan="1"
+        android:layout_gravity="left|right|top"
+        android:layout_margin="@dimen/app_padding" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_column="0"
+        android:layout_row="3"
+        android:layout_columnSpan="8"
+        android:layout_rowSpan="1"
+        android:layout_gravity="left|right"
+        android:layout_marginTop="@dimen/top_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/drink_size_label"
+            android:id="@+id/textView"
+            android:layout_margin="@dimen/app_padding"
+            android:gravity="center" />
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/idDrinkSizeRdGrp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one_oz_label"
+                android:id="@+id/id1OZ"
+                android:layout_marginLeft="@dimen/left_padding"
+                android:checked="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/five_oz_label"
+                android:id="@+id/id5OZ"
+                android:layout_marginLeft="@dimen/left_padding" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ten_oz_label"
+                android:id="@+id/id10OZ"
+                android:layout_marginLeft="@dimen/left_padding" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="4"
+        android:layout_columnSpan="8"
+        android:layout_column="0"
+        android:layout_rowSpan="1"
+        android:padding="@dimen/app_padding"
+        android:layout_gravity="left|right">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/alcohol_label"
+            android:id="@+id/textView2"
+            android:layout_marginRight="@dimen/top_padding"
+            android:gravity="center" />
+
+        <SeekBar
+            android:layout_width="@dimen/range_bar_size"
+            android:layout_height="fill_parent"
+            android:id="@+id/seekBar" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="@string/add_drink_label"
+        android:id="@+id/idAddDrinkButton"
+        android:layout_row="5"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="4"
+        android:layout_column="0"
+        android:layout_gravity="fill"
+        android:layout_margin="@dimen/app_padding" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="@string/reset_label"
+        android:id="@+id/idResetButton"
+        android:layout_row="5"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="4"
+        android:layout_column="4"
+        android:layout_gravity="fill"
+        android:layout_margin="@dimen/app_padding" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/bac_level_result_label"
+        android:id="@+id/idBacLevelResult"
+        android:layout_row="6"
+        android:layout_rowSpan="1"
+        android:layout_column="0"
+        android:layout_columnSpan="8"
+        android:layout_columnWeight="1"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/bottom_result_padding"
+        android:textSize="@dimen/bal_level_result_font_size" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_column="0"
+        android:layout_columnSpan="8"
+        android:layout_row="7"
+        android:layout_rowSpan="1"
+        android:layout_columnWeight="1"
+        android:layout_rowWeight="1">
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/IDProgressBarBAC" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/status_label"
+        android:id="@+id/textView3"
+        android:layout_column="0"
+        android:layout_columnSpan="4"
+        android:layout_columnWeight="0"
+        android:layout_row="8"
+        android:layout_rowSpan="1"
+        android:layout_gravity="right"
+        android:layout_marginRight="@dimen/app_padding"
+        android:padding="@dimen/small_padding" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/current_status_label"
+        android:id="@+id/idStatus"
+        android:layout_column="4"
+        android:layout_columnSpan="2"
+        android:layout_row="8"
+        android:layout_rowSpan="1"
+        android:textColor="@color/status_text_color"
+        android:background="@color/safe_background_color"
+        android:layout_marginLeft="@dimen/app_padding"
+        android:padding="@dimen/small_padding" />
+
+
+</GridLayout>

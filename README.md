@@ -24,7 +24,9 @@ The interface should be created to match the user interface (UI) presented in Fi
 You will be using layout files, strings.xml, and drawable files to create the user interface.
 The  layout  XML  file  can  be  modified  through  the  raw  xml,  or  through  the  GUI  tools
 provided within Android Studio
+
 . To build the UI, please follow the following tasks:
+
 1. Your  application  should  have  an  application  launcher  icon,  please  select  your launcher icon to represent your app.
 2. The string values used for the text labels, button labels and hints should be read from the strings.xml file and should not be hardwired in the layout file.
 3. Use  an  EditText  component  for  the  user  to  enter  his/her  weight  in  pounds. The  EditText  component  should  be  setup  to  limit  the  weight  value  to  only  positive  numbers. When the application starts the weight value EditText should be empty, and should display the hint message “Enter Weight” as indicated in Figure 1.
@@ -47,6 +49,6 @@ d. More  information  on  calculating  BAC  can  found  here: http://www.teamdui
 13. Once the BAC is calculated for the current drink, it should be added to the previous BAC  level  and  the  “BAC  Level:”  label  should  be  updated  to  reflect  the  new  BAC. Similarly,  the  ProgressBar  should  be  updated  to  reflect  the  BAC,  and  should  reach the max whenever the BAC is equal to .25 or higher.
 14. Whenever  the  weight/gender  is  changed  and  the  Save  button  is  pressed, the accumulated BAC level should be recalculated based on the new weight/gender.
 15. When the BAC level is less than or equal to .08, the “Your Status” label should read “You’re safe.” See Figure 2(b). When it is greater than .08 but less than .20, it should read “Be careful...” and when .20 or greater, it reads “Over the limit!” See Figure 2(c).
-16. Whenever the BAC level reachs .25, the all buttons should be disabled, except for the Reset button. This should be the case, even if BAC was under .25  given  a previous  weight/gender, but  reaches  .25  or  greater  when  recalculated  with  a new 
+16. Whenever the BAC level reachs .25, the all buttons should be disabled, except for the Reset button. This should be the case, even if BAC was under .25  given  a previous  weight/gender, but  reaches  .25  or  greater  when  recalculated  with  a new
 weight/gender. Display a Toast that says “No more drinks for you.”
 17. If the user presses the Reset button, this should reset the drink size and alcohol % parameters  to  their  default  values, and  clear  the  saved  weight  and  gender  values. Any disabled buttons should be enabled again, if applicable.

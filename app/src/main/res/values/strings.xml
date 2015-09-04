@@ -3,4 +3,18 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="weight_text_label">Weight (lbs)</string>
+    <string name="gender_label">Gender</string>
+    <string name="drink_size_label">Drink Size</string>
+    <string name="save_button_label">Save</string>
+    <string name="one_oz_label">1 oz</string>
+    <string name="five_oz_label">5 oz</string>
+    <string name="ten_oz_label">10 oz</string>
+    <string name="alcohol_label">Alcohol %</string>
+    <string name="add_drink_label">Add Drink</string>
+    <string name="reset_label">Reset</string>
+    <string name="bac_level_label">BAC Level:</string>
+    <string name="bac_level_result_label">BAC Level: 0.00</string>
+    <string name="status_label">Your Status:</string>
+    <string name="current_status_label">You\'re safe</string>
 </resources>
