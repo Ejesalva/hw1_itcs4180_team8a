@@ -1,230 +1,208 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:columnCount="8"
-    android:rowCount="9"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:paddingTop="@dimen/app_padding">
+    android:padding="@dimen/dim_ten_dp"
+    android:gravity="center_vertical|center_horizontal">
+
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_rowSpan="@integer/one_span"
-        android:layout_columnSpan="@integer/four_span"
-        android:layout_gravity="top"
-        android:layout_column="0"
-        android:padding="@dimen/app_padding"
-        android:layout_row="0">
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/idWeightSection"
+        android:padding="@dimen/dim_ten_dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/dim_ten_dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/weight_text_label"
-            android:id="@+id/idWeightLabel" />
+            android:id="@+id/idWeightLabel"
+            android:layout_gravity="bottom" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dim_one_hun_dp"
             android:layout_height="wrap_content"
-            android:id="@+id/idWeightEditText"
-            android:hint="Enter Weight"
-            android:textSize="13dp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_rowSpan="@integer/one_span"
-        android:layout_columnSpan="@integer/four_span"
-        android:layout_gravity="top"
-        android:layout_column="4"
-        android:padding="@dimen/app_padding"
-        android:layout_row="0">
+            android:inputType="number"
+            android:id="@+id/idWeight"
+            android:layout_marginLeft="@dimen/dim_ten_dp"
+            android:layout_gravity="bottom|right"
+            android:hint="@string/enter_weight_label"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/dim_ten_dp" />
 
         <Switch
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/gender_label"
-            android:id="@+id/idGenderSwitch" />
+            android:id="@+id/idGender"
+            android:layout_marginLeft="@dimen/dim_twenty_dp"
+            android:gravity="center"
+            android:layout_gravity="bottom" />
     </LinearLayout>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/save_button_label"
-        android:id="@+id/idSaveButton"
-        android:layout_column="0"
-        android:layout_row="2"
-        android:layout_columnSpan="8"
-        android:layout_rowSpan="1"
-        android:layout_gravity="left|right|top"
-        android:layout_margin="@dimen/app_padding" />
+        android:id="@+id/idSave"
+        android:layout_marginBottom="@dimen/dim_ten_dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/dim_twenty_dp" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_column="0"
-        android:layout_row="3"
-        android:layout_columnSpan="8"
-        android:layout_rowSpan="1"
-        android:layout_gravity="left|right"
-        android:layout_marginTop="@dimen/top_padding">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_thirty_dp"
+        android:id="@+id/idDrinksLayout"
+        android:padding="@dimen/dim_ten_dp"
+        android:layout_gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/drink_size_label"
-            android:id="@+id/textView"
-            android:layout_margin="@dimen/app_padding"
-            android:gravity="center" />
+            android:id="@+id/idDrinkSizeLabel"
+            android:layout_gravity="center_vertical" />
 
         <RadioGroup
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/idDrinkSizeRdGrp"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dim_ten_dp"
+            android:id="@+id/idDrinkSizeGrp"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/one_oz_label"
-                android:id="@+id/id1OZ"
-                android:layout_marginLeft="@dimen/left_padding"
-                android:checked="true" />
-
+                android:id="@+id/id1oz"
+                android:checked="true"
+                android:layout_marginLeft="@dimen/dim_ten_dp" />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/five_oz_label"
-                android:id="@+id/id5OZ"
-                android:layout_marginLeft="@dimen/left_padding" />
-
+                android:id="@+id/id5oz"
+                android:layout_marginLeft="@dimen/dim_ten_dp" />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ten_oz_label"
-                android:id="@+id/id10OZ"
-                android:layout_marginLeft="@dimen/left_padding" />
+                android:id="@+id/id10oz"
+                android:layout_marginLeft="@dimen/dim_ten_dp" />
         </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_row="4"
-        android:layout_columnSpan="8"
-        android:layout_column="0"
-        android:layout_rowSpan="1"
-        android:padding="@dimen/app_padding"
-        android:layout_gravity="left|right">
+        android:id="@+id/idAlcoholLayout"
+        android:padding="@dimen/dim_ten_dp"
+        android:layout_gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/alcohol_label"
-            android:id="@+id/textView2"
-            android:layout_marginRight="@dimen/top_padding"
-            android:gravity="center" />
+            android:id="@+id/idAlcoholLabel"
+            android:layout_gravity="center_vertical" />
 
         <SeekBar
-            android:layout_width="@dimen/range_bar_size"
-            android:layout_height="fill_parent"
-            android:id="@+id/seekBar" />
+            android:layout_width="@dimen/dim_two_hun_dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/idAlcoholProgress"
+            android:layout_marginLeft="@dimen/dim_ten_dp"
+            android:indeterminate="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/alcohol_indicator_label"
+            android:id="@+id/idAlcoholSeeker"
+            android:layout_marginLeft="@dimen/dim_ten_dp" />
+
     </LinearLayout>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="@string/add_drink_label"
-        android:id="@+id/idAddDrinkButton"
-        android:layout_row="5"
-        android:layout_rowSpan="1"
-        android:layout_columnSpan="4"
-        android:layout_column="0"
-        android:layout_gravity="fill"
-        android:layout_margin="@dimen/app_padding" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dim_ten_dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center">
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="@string/reset_label"
-        android:id="@+id/idResetButton"
-        android:layout_row="5"
-        android:layout_rowSpan="1"
-        android:layout_columnSpan="4"
-        android:layout_column="4"
-        android:layout_gravity="fill"
-        android:layout_margin="@dimen/app_padding" />
+        <Button
+            android:layout_width="@dimen/dim_one_fifty_dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_drink_label"
+            android:id="@+id/idAddDrinkButton" />
+
+        <Button
+            android:layout_width="@dimen/dim_one_fifty_dp"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_label"
+            android:id="@+id/idAResetButton" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/bac_level_result_label"
-        android:id="@+id/idBacLevelResult"
-        android:layout_row="6"
-        android:layout_rowSpan="1"
-        android:layout_column="0"
-        android:layout_columnSpan="8"
-        android:layout_columnWeight="1"
+        android:id="@+id/idBacLevel"
+        android:layout_gravity="center_vertical"
+        android:textSize="@dimen/dim_thirty_dp"
+        android:textAlignment="center"
         android:gravity="center_horizontal"
-        android:paddingTop="@dimen/bottom_result_padding"
-        android:textSize="@dimen/bal_level_result_font_size" />
+        android:layout_marginTop="@dimen/dim_thirty_dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_marginLeft="@dimen/dim_ten_dp"
+        android:layout_marginRight="@dimen/dim_ten_dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dim_ten_dp" />
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_column="0"
-        android:layout_columnSpan="8"
-        android:layout_row="7"
-        android:layout_rowSpan="1"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:padding="@dimen/dim_ten_dp">
 
-        <ProgressBar
-            style="@style/Widget.AppCompat.ProgressBar"
-            android:layout_width="fill_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/IDProgressBarBAC" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/status_label"
+            android:id="@+id/idStatusLabel" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/current_status_label"
+            android:id="@+id/textView"
+            android:padding="@dimen/dim_five_dp"
+            android:layout_marginLeft="@dimen/dim_five_dp"
+            android:textColor="@color/status_text_color"
+            android:background="@color/safe_background_color" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/status_label"
-        android:id="@+id/textView3"
-        android:layout_column="0"
-        android:layout_columnSpan="4"
-        android:layout_columnWeight="0"
-        android:layout_row="8"
-        android:layout_rowSpan="1"
-        android:layout_gravity="right"
-        android:layout_marginRight="@dimen/app_padding"
-        android:padding="@dimen/small_padding" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/current_status_label"
-        android:id="@+id/idStatus"
-        android:layout_column="4"
-        android:layout_columnSpan="2"
-        android:layout_row="8"
-        android:layout_rowSpan="1"
-        android:textColor="@color/status_text_color"
-        android:background="@color/safe_background_color"
-        android:layout_marginLeft="@dimen/app_padding"
-        android:padding="@dimen/small_padding" />
-
-
-</GridLayout>
+</LinearLayout>
