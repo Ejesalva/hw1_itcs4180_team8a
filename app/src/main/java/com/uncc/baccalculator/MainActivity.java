@@ -32,9 +32,13 @@ public class MainActivity extends AppCompatActivity {
         final TextView savedUser = (TextView) findViewById(R.id.idSavedUserValue);
         final TextView statusView = (TextView) findViewById(R.id.idStatus);
 
-        Button saveButton = (Button) findViewById(R.id.idSave);
-        Button addButton = (Button) findViewById(R.id.idAddDrinkButton);
+        final Button saveButton = (Button) findViewById(R.id.idSave);
+        final Button addButton = (Button) findViewById(R.id.idAddDrinkButton);
         Button resetButton = (Button) findViewById(R.id.idAResetButton);
+
+        final int alarmColor = getResources().getColor(R.color.caution_background_color);
+        final int cautionColor = getResources().getColor(R.color.warning_background_color);
+        final int safeColor = getResources().getColor(R.color.safe_background_color);
 
         alcoholLevelBar.setProgress(1);
         alcoholLevel.setText("5%");
@@ -42,17 +46,19 @@ public class MainActivity extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int safeColor = getResources().getColor(R.color.safe_background_color);
-
                 currentUser = new User();
                 alcoholLevelBar.setProgress(1);
                 alcoholLevel.setText("5%");
+                bacLevelBar.setProgress(0);
 
                 savedUser.setText("");
                 bacLevelView.setText("BAC Level: 0.00");
 
                 statusView.setText("You're safe");
                 statusView.setBackgroundColor(safeColor);
+
+                addButton.setEnabled(true);
+                saveButton.setEnabled(true);
             }
         });
 
@@ -71,7 +77,25 @@ public class MainActivity extends AppCompatActivity {
                     currentUser.setAsActive();
                     savedUser.setText("Current User: " + currentUser.getWeight() + " lbs " + currentUser.getGender());
 
-                    if(currentUser.getBac() > 0) bacLevelView.setText("BAC Level: " + String.format("%.2f", currentUser.getBac()));
+                    if(currentUser.getBac() > 0){
+                        bacLevelView.setText("BAC Level: " + String.format("%.2f", currentUser.getBac()));
+
+                        if (bacLevelBar.getProgress() >= 20) {
+                            statusView.setText("Over the limit!");
+                            statusView.setBackgroundColor(alarmColor);
+
+                            addButton.setEnabled(false);
+                            saveButton.setEnabled(false);
+                        }
+                        else if ( 8 <= bacLevelBar.getProgress() && bacLevelBar.getProgress() < 20){
+                            statusView.setText("Be careful...");
+                            statusView.setBackgroundColor(cautionColor);
+                        }
+                        else{
+                            statusView.setText("You're safe");
+                            statusView.setBackgroundColor(safeColor);
+                        }
+                    }
 
                 } else {
                     weightInput.requestFocus();
@@ -90,10 +114,6 @@ public class MainActivity extends AppCompatActivity {
                 String drinkSizeText = drinkSizeInput.getText().toString();
                 Integer alcoholLevel = alcoholLevelBar.getProgress();
 
-                int alarmColor = getResources().getColor(R.color.caution_background_color);
-                int cautionColor = getResources().getColor(R.color.warning_background_color);
-                int safeColor = getResources().getColor(R.color.safe_background_color);
-
                 if (currentUser.getActiveValue()) {
                     currentUser.setDrinkSelection(drinkSizeText, alcoholLevel);
                     Toast.makeText(getApplicationContext(), (alcoholLevel * 5) + "%, " + drinkSizeText + " drink added.", Toast.LENGTH_LONG).show();
@@ -106,6 +126,9 @@ public class MainActivity extends AppCompatActivity {
                     if (bacLevelBar.getProgress() >= 20) {
                         statusView.setText("Over the limit!");
                         statusView.setBackgroundColor(alarmColor);
+
+                        addButton.setEnabled(false);
+                        saveButton.setEnabled(false);
                     }
                     else if ( 8 <= bacLevelBar.getProgress() && bacLevelBar.getProgress() < 20){
                         statusView.setText("Be careful...");
