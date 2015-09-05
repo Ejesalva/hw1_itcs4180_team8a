@@ -70,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
                 String weightValue = weightInput.getText().toString();
                 String gender = genderInput.isChecked() ? genderInput.getTextOn().toString() : genderInput.getTextOff().toString();
-
+                if (weightValue.matches("")) {
+                    weightValue = "0";
+                }
                 if (Integer.parseInt(weightValue) > 0) {
                     currentUser.setGender(gender);
                     currentUser.setWeight(Integer.parseInt(weightValue));
