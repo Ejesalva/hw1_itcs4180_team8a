@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
                     if(currentUser.getBac() > 0){
                         bacLevelView.setText("BAC Level: " + String.format("%.2f", currentUser.getBac()));
+                        Double tempBac = currentUser.getBac() * 100;
+                        bacLevelBar.setProgress(tempBac.intValue());
 
                         if (bacLevelBar.getProgress() >= 20) {
                             statusView.setText("Over the limit!");
